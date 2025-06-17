@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Token Depository of America (GTDA) - Honest Money</title>
+    <meta name="description" content="GTDA offers redeemable paper notes backed 100% by physical gold held in trust, bringing honest money back to America. Explore our commitment to sound money and Austrian economics.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles to apply the specified typography and colors */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f7f4eb; /* Creamy background */
+            color: #36454F; /* Charcoal */
+        }
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: 'Georgia', serif;
+        }
+        .bg-deep-blue { background-color: #003366; }
+        .text-gold { color: #D4AF37; }
+        .border-gold { border-color: #D4AF37; }
+        .bg-gold { background-color: #D4AF37; }
+
+        /* Hero section background image */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.pexels.com/photos/210582/pexels-photo-210582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-3xl font-serif font-bold text-gray-800">
+                        GTD<span class="text-gold">A</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-deep-blue transition duration-300">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-deep-blue transition duration-300">About</a>
+                    <a href="#notes" class="text-gray-600 hover:text-deep-blue transition duration-300">Our Notes</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-deep-blue transition duration-300">Pricing</a>
+                    <a href="#legal" class="text-gray-600 hover:text-deep-blue transition duration-300">Legal</a>
+                    <a href="#contact" class="text-gray-600 hover:text-deep-blue transition duration-300">Contact</a>
+                </nav>
+                
+                <!-- Live Spot Prices -->
+                <div class="hidden sm:flex items-center space-x-4 text-sm font-semibold">
+                    <div>
+                        <span>Gold:</span>
+                        <span id="gold-price" class="text-green-600">$----.--</span>
+                    </div>
+                    <div class="border-l border-gray-300 h-6"></div>
+                    <div>
+                        <span>Silver:</span>
+                        <span id="silver-price" class="text-green-600">$--.--</span>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-800 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <nav class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-deep-blue">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-deep-blue">About</a>
+                <a href="#notes" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-deep-blue">Our Notes</a>
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-deep-blue">Pricing</a>
+                <a href="#legal" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-deep-blue">Legal</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-deep-blue">Contact</a>
+                <div class="border-t border-gray-200 mt-2 pt-2 flex justify-around text-sm font-semibold">
+                     <div>
+                        <span>Gold:</span>
+                        <span id="gold-price-mobile" class="text-green-600">$----.--</span>
+                    </div>
+                    <div>
+                        <span>Silver:</span>
+                        <span id="silver-price-mobile" class="text-green-600">$--.--</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight mb-4">Bringing Honest Money Back to America</h1>
+                <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto mb-8">Redeemable paper notes backed 100% by physical gold held in trust.</p>
+                <a href="#notes" class="bg-gold text-deep-blue font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-400 transition duration-300 shadow-lg">
+                    Explore Our Notes
+                </a>
+            </div>
+        </section>
+
+        <!-- Mission Statement Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-serif text-deep-blue mb-6">A Commitment to Sound Money</h2>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    At the Gold Token Depository of America, our mission is rooted in the principles of Austrian economics and the foundational value of sound money. We believe that true economic prosperity is built on a stable, reliable medium of exchange—one that is free from inflationary pressures and government manipulation. Our notes represent a return to this principle, offering a secure and transparent instrument for voluntary exchange, backed by the enduring value of physical gold.
+                </p>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-serif text-center text-deep-blue mb-12">The GTDA Process: Simple & Secure</h2>
+                <div class="grid md:grid-cols-3 gap-8 md:gap-12 text-center">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center">
+                        <div class="bg-deep-blue rounded-full h-24 w-24 flex items-center justify-center mb-4 shadow-lg">
+                            <svg class="w-12 h-12 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-serif text-gray-800 mb-2">1. Acquire</h3>
+                        <p class="text-gray-600">Securely purchase GTDA notes, each representing a specific, verifiable amount of physical gold held in our depository.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center">
+                        <div class="bg-deep-blue rounded-full h-24 w-24 flex items-center justify-center mb-4 shadow-lg">
+                           <svg class="w-12 h-12 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-serif text-gray-800 mb-2">2. Transact</h3>
+                        <p class="text-gray-600">Use your notes as a stable medium of exchange for goods and services with any party who recognizes their intrinsic value.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center">
+                        <div class="bg-deep-blue rounded-full h-24 w-24 flex items-center justify-center mb-4 shadow-lg">
+                            <svg class="w-12 h-12 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m10-10v10m-4-4l4 4-4-4z"></path><path d="M5 3v4M3 5h4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-serif text-gray-800 mb-2">3. Redeem</h3>
+                        <p class="text-gray-600">At any time, redeem your notes for the corresponding physical gold from our secure, audited facilities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Specimen Notes Section -->
+        <section id="notes" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-serif text-center text-deep-blue mb-12">Our Notes</h2>
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x350/003366/D4AF37?text=GTDA+Specimen+Note" alt="GTDA Specimen Note" class="rounded-lg shadow-2xl w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-serif text-gray-800 mb-4">Integrity in Every Detail</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Each GTDA note is a work of art and a fortress of security. Featuring intricate designs inspired by classical banknotes, our notes incorporate modern security features to prevent fraud and ensure authenticity. Denominations are clearly marked, corresponding to a precise weight and purity of gold.
+                        </p>
+                        <a href="/path/to/specimen-notes.pdf" download class="inline-flex items-center text-deep-blue hover:text-gold font-semibold transition duration-300">
+                             Download Specimen Sheet
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Legal Framework Section -->
+        <section id="legal" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 bg-deep-blue text-white rounded-lg shadow-xl p-12">
+                 <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-serif mb-6">Our Legal Framework</h2>
+                    <p class="text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+                        GTDA operates on a firm constitutional and common-law foundation. Our notes are issued as private commodity instruments, representing title to a specific quantity of gold. They are not, and do not purport to be, official legal tender. We invite you to review our comprehensive legal position which outlines the historical precedent and legal basis for private, asset-backed notes in commerce.
+                    </p>
+                    <a href="/path/to/legal-whitepaper.pdf" download class="bg-gold text-deep-blue font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-400 transition duration-300 shadow-lg">
+                        Read Full Legal Argument
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- About GTDA -->
+                <div>
+                    <h4 class="text-xl font-serif font-bold mb-4">GTD<span class="text-gold">A</span></h4>
+                    <p class="text-gray-400">Restoring honest money to America through 100% gold-backed, redeemable notes.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-gold">About Us</a></li>
+                        <li><a href="/path/to/privacy-policy.pdf" class="text-gray-400 hover:text-gold">Privacy Policy</a></li>
+                        <li><a href="/path/to/terms-of-use.pdf" class="text-gray-400 hover:text-gold">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <!-- Newsletter Signup -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Investor Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Receive updates on sound money and our depository.</p>
+                    <form>
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="w-full px-4 py-2 rounded-l-lg text-gray-800 focus:outline-none">
+                            <button type="submit" class="bg-deep-blue text-white px-4 py-2 rounded-r-lg hover:bg-blue-800">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2024 Gold Token Depository of America. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <!-- Placeholder Social Icons -->
+                    <a href="#" class="hover:text-gold"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a>
+                    <a href="#" class="hover:text-gold"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Live Metal Prices Ticker ---
+        const goldPriceElement = document.getElementById('gold-price');
+        const silverPriceElement = document.getElementById('silver-price');
+        const goldPriceMobileElement = document.getElementById('gold-price-mobile');
+        const silverPriceMobileElement = document.getElementById('silver-price-mobile');
+
+
+        async function fetchMetalPrices() {
+            // NOTE: This uses a free, public API. For production, use a reliable, paid API key.
+            // Replace 'YOUR_API_KEY' with your key from a service like metals-api.com
+            const apiKey = 'YOUR_API_KEY'; // This is a placeholder
+            const apiUrl = `https://api.metals.live/v1/spot`; // Example API URL
+            
+            // For demonstration purposes without a real API key, we will use mock data.
+            // In a real application, the fetch call would be used.
+            const useMockData = true;
+
+            try {
+                let data;
+                if(useMockData) {
+                    // MOCK DATA
+                    data = [
+                        { "metal": "gold", "price": 2321.55 + (Math.random() - 0.5) * 10 },
+                        { "metal": "silver", "price": 29.58 + (Math.random() - 0.5) }
+                    ];
+                } else {
+                    // REAL API CALL (requires a valid API URL and potentially a key)
+                    const response = await fetch(apiUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    data = await response.json();
+                }
+
+                const goldData = data.find(metal => metal.metal.toLowerCase() === 'gold');
+                const silverData = data.find(metal => metal.metal.toLowerCase() === 'silver');
+
+                if (goldData) {
+                    const price = parseFloat(goldData.price).toFixed(2);
+                    goldPriceElement.textContent = `$${price}`;
+                    goldPriceMobileElement.textContent = `$${price}`;
+                }
+                if (silverData) {
+                    const price = parseFloat(silverData.price).toFixed(2);
+                    silverPriceElement.textContent = `$${price}`;
+                    silverPriceMobileElement.textContent = `$${price}`;
+                }
+
+            } catch (error) {
+                console.error("Could not fetch metal prices:", error);
+                goldPriceElement.textContent = "N/A";
+                silverPriceElement.textContent = "N/A";
+                goldPriceMobileElement.textContent = "N/A";
+                silverPriceMobileElement.textContent = "N/A";
+            }
+        }
+
+        // Fetch prices on initial load
+        fetchMetalPrices();
+
+        // Refresh prices every 60 seconds
+        setInterval(fetchMetalPrices, 60000);
+    </script>
+
+</body>
+</html>
